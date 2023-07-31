@@ -1,0 +1,24 @@
+// must change code
+// doesnt work
+
+# Peggy's private data
+address = "0x123456789abcdef0123456789abcdef0123456789"
+account_balance = 2000000000000000000  # 2 ETH (in wei)
+
+# Encoding Peggy's private data
+encoded_address = convert_address_to_numeric(address)  # Some function to convert address to an integer
+encoded_balance = account_balance * 1000000000  # Scaling the balance to avoid floating-point numbers
+
+# ZoKrates circuit code
+def main():
+    # Define private inputs
+    private encoded_address: field
+    private encoded_balance: field
+
+    # Define public input
+    public threshold: field = 1000000000000000000  # 1 ETH in wei
+
+    # Check if the balance is greater than the threshold
+    verify(encoded_balance > threshold)
+
+
